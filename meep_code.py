@@ -21,9 +21,8 @@ if __name__ == "__main__":
     except(IndexError):
         pass
 
-
 #Simulation parameters
-resolution = 70
+resolution = 70 #Meep resolution parameter for run() function
 a = 1 #Unitcell length
 z = 1 #thickness of simulation cell
 pmls = 0.2 #Thickness of pmls or absorber
