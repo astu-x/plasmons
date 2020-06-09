@@ -49,7 +49,6 @@ def UNK2unk(cell,k):
             output[i][j] = cell[i][j]*np.exp(np.complex(0,-2*np.pi*k[0]*(i/cell.shape[0]) - 2*np.pi*k[1]*(j/cell.shape[1])))
     return output
 
-
 #Load K_points
 k_points = k_points_load("data/sim_specs.dat")
 
