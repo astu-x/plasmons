@@ -32,12 +32,10 @@ def harminv(path):
     freq_low = 0.000
     freq_high = 0.037
     
-    
     dt = 1/(2*resolution)
     
     i=0
     final_output = []
-    
     
     with open(path) as file:
             for line in file: 
@@ -101,10 +99,7 @@ for i in range(0,len(output_field)):
     F.write(str(output_field[i][0]) + "," + str(output_field[i][1]) + "," + str(output_field[i][2]) + "," + str(output_field[i][3]) + "," + str(output_field[i][4]) + "," + str(output_field[i][5]) + "," + str(output_field[i][6]) + "\n")
 F.close()
 
-
-
 #Filtering unwanted modes
-
 #set parameters for filtering
 quality_factor = 20
 minimum_amplitude = 1
@@ -117,9 +112,8 @@ with open("data/harminv_field1.dat") as file:
         modes.append((np.float(line.split(",")[0]),np.float(line.split(",")[1]),np.float(line.split(",")[2]),np.float(line.split(",")[3]),np.float(line.split(",")[4]),np.float(line.split(",")[5]),np.float(line.split(",")[6])))
 modes = np.array(modes)
 
-plot_data = []
-
 #Make filtered dataframe according to given parameters (panda dataframe used)
+plot_data = []
 for i in range(0,len(modes)):
     if np.abs(modes[i][3]) >= quality_factor and modes[i][4] >= minimum_amplitude and  max_error >= np.abs(modes[i][6]):
         plot_data.append((modes[i][0],modes[i][1],modes[i][2],modes[i][3],modes[i][4],modes[i][5],modes[i][6]))
@@ -143,6 +137,7 @@ plt.xticks([0,18,39,50], labels = ["M","Γ","K","M"], size = 12)
 plt.xlabel("Wave vector k", size = 'small')
 plt.ylabel("Frequency (THz)", size = 'small')
 
+#Functions used for secundary axis (cm^-1 vs THz)
 def HtoW(x):
     return x*33.35641
 
