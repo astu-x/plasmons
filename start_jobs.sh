@@ -15,3 +15,4 @@ do
     cmd_line='sbatch --dependency=afterok:$jobid'$(($i - $k_points1 - 1))' run.sh '$i
     eval $cmd_line
 done
+
